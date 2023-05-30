@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0eb38a",
+    "navigationBarTitleText": "轻取视图",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,75 @@
+<!--pages/index/index.wxml-->
+<view class="head-bg">
+  <!-- 省略无关代码 -->
+  <!-- 上半部分 -->
+  <view class="half_top">
+    <view class="function_introduce">
+      <view class="bot"></view>
+      <view class="introd">保存高清原图</view>
+    </view>
+    <view class="function_introduce">
+      <view class="bot"></view>
+      <view class="introd">下载无水印视频</view>
+    </view>
+    <view class="function_introduce">
+      <view class="bot"></view>
+      <view class="introd">文案提取</view>
+    </view>
+    <!-- <view class="function_introduce">
+      <view class="bot"></view>
+      <view class="introd">下载原生音频</view>
+    </view> -->
+  </view>
+  <!-- 下半部分 -->
+  <view class="harf_bottom">
+    <!-- <view class="title">轻取视图</view> -->
+    <form>
+      <textarea type="text" focus="True" placeholder="请输入复制的链接：目前仅支持Dou音和小hs" bindinput="getlianjie" value="{{lianjie}}" />
+      <button type="primary" bindtap="jiexi" id="jiexi">解 析</button>
+      <button type="primary" bindtap="qingkong" id="qingkong">清 空</button>
+    </form>
+    <!-- 选择模块 -->
+    <view class="choose" style="display: {{choose_display}};">
+    <button style="background-color: {{color1}};" type="primary" id="btn_choose" bindtap="video_display">视 频</button>
+    <button style="background-color: {{color2}};" type="primary" id="btn_choose" bindtap="pic_display">图 片</button>
+  
+    <button style="background-color: {{color3}};" type="primary" id="btn_choose" bindtap="text_display">文 案</button>
+
+    
+    </view>
+    <!-- 视频模块 -->
+    <view class="video" style="display: {{video_display}};">
+      <video src="{{response.video}}" id="video" style="display: {{display}};" />
+      <button type="primary" bindtap="xiazai" id="xiazai" style="display: {{display}};">保存到相册</button>
+    </view>
+
+    <!-- 图片模块 -->
+    <view class="pics" style="display: {{pic_display}};">
+      <view class="pics_header">
+        <view class="pics_header_1">点击图片即可选中</view>
+        <view class="pics_header_2" bindtap="download_select_pic">保存选中</view>
+        <view class="pics_header_2" bindtap="download_all_pic">保存全部</view>
+      </view>
+      <image src="{{item.src}}" mode="" wx:for="{{response.pics}}" class="pic {{response.pics[index].isSelected?'selected':''}}" wx:key="index" bindtap='selectApply' data-index='{{index}}' wx:item="item" wx:key="key" />
+    </view>
+
+    <!-- 文案模块 -->
+    <view class="text" style="display: {{text_display}};">
+      <text class="text_content">{{response.title}}</text>
+      <button id="copy_text" bindtap="copy_text" type="primary">复制到粘贴板</button>
+    </view>
+
+    <!-- 暂无模块 -->
+    <view class="temp" style="display: {{temp_display}};">
+      <text class="temp_content">暂 无</text>
+    </view>
+
+
+
+
+
+  </view>
+
+
+
+</view>
